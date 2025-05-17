@@ -4,8 +4,8 @@ import App from './App';
 import './index.css';
 
 import { Amplify } from 'aws-amplify';
-// TEMPORARILY REMOVE AMPLIFY CONFIG TO UNBLOCK BUILD
-import config from '../amplify_outputs.json'; // adjust path if needed
+// import config from './aws-exports.json';
+import config from '../amplify_outputs.json'
 Amplify.configure(config);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
