@@ -19,8 +19,8 @@ backend:
   phases:
     build:
       commands:
-        - amplify generate backend
+        - npx ampx generate outputs
   artifacts:
-    baseDirectory: .
+    baseDirectory: amplify
     files:
       - '**/*'
