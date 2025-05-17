@@ -19,7 +19,7 @@ backend:
   phases:
     build:
       commands:
-        - npx ampx generate outputs
+        - npx ampx generate outputs --app-id d20aubldexn0jj --branch dev
   artifacts:
     baseDirectory: amplify
     files:
