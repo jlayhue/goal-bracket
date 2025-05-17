@@ -679,3 +679,199 @@
 .back-btn:hover {
   background: #e0e0e0;
 }
+
+/* --- Global Styles --- */
+body, #root, .app-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #181c2a 0%, #232946 100%);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #eaf0fa;
+}
+
+/* --- Glassmorphic Navigation Bar --- */
+.top-nav {
+  width: 100%;
+  background: rgba(30, 34, 54, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+}
+
+.top-nav .app-logo {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #7f9cf5;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 2px 8px #7f9cf5aa;
+}
+
+.top-nav .nav-user {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.top-nav .user-email {
+  font-size: 1rem;
+  color: #eaf0fa;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.top-nav .sign-out-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid #ff6b81;
+  color: #ff6b81;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px 0 #ff6b8133;
+}
+.top-nav .sign-out-btn:hover {
+  background: #ff6b81;
+  color: #fff;
+}
+
+/* --- Glassmorphic Main Content Card --- */
+.main-content-card {
+  background: rgba(36, 40, 62, 0.85);
+  border-radius: 22px;
+  box-shadow: 0 8px 40px 0 #000a  , 0 1.5px 8px 0 #7f9cf544;
+  padding: 2.5rem 2rem;
+  margin: 3rem auto 2rem auto;
+  max-width: 1000px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+@media (max-width: 900px) {
+  .main-content-card {
+    padding: 1.2rem 0.3rem;
+    margin: 1rem;
+  }
+  .top-nav {
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* --- Section Headings --- */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #7f9cf5;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 8px #7f9cf5aa;
+}
+
+/* --- Card/Panel Styles --- */
+.goal-input-container, .bracket-list, .saved-bracket-view, .bracket-container, .saved-brackets {
+  background: rgba(44, 48, 74, 0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 #0006;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid rgba(255,255,255,0.07);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 700px) {
+  .goal-input-container, .bracket-list, .saved-bracket-view, .bracket-container, .saved-brackets {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* --- Button Improvements --- */
+.primary-btn, .secondary-btn, .back-btn {
+  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 #7f9cf544;
+}
+.primary-btn {
+  background: linear-gradient(90deg, #7f9cf5 0%, #5eead4 100%);
+  color: #232946;
+  border: none;
+}
+.primary-btn:hover {
+  background: linear-gradient(90deg, #5eead4 0%, #7f9cf5 100%);
+  color: #181c2a;
+  box-shadow: 0 4px 16px 0 #5eead488;
+}
+.secondary-btn {
+  background: rgba(255,255,255,0.12);
+  color: #eaf0fa;
+  border: 1.5px solid #7f9cf5;
+}
+.secondary-btn:hover {
+  background: #7f9cf5;
+  color: #232946;
+}
+.back-btn {
+  background: rgba(255,255,255,0.08);
+  color: #eaf0fa;
+  border: 1.5px solid #bdbdbd44;
+}
+.back-btn:hover {
+  background: #232946;
+  color: #7f9cf5;
+}
+
+/* --- Input and Select Styles --- */
+input, select, textarea {
+  background: rgba(255,255,255,0.08);
+  color: #eaf0fa;
+  border: 1.5px solid #7f9cf5;
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  margin-bottom: 1.1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1.5px 8px 0 #7f9cf522;
+}
+input:focus, select:focus, textarea:focus {
+  border: 1.5px solid #5eead4;
+  box-shadow: 0 2px 12px 0 #5eead488;
+}
+
+/* --- Miscellaneous --- */
+.error {
+  color: #ff6b81;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.empty-state, .hint {
+  color: #bdbdbd;
+  font-style: italic;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #232946;
+}
+::-webkit-scrollbar-thumb {
+  background: #7f9cf5;
+  border-radius: 8px;
+}
