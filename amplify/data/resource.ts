@@ -15,9 +15,11 @@ const schema = a.schema({
     title: a.string().required(),
     category: a.enum(['CAREER', 'FAITH', 'FAMILY', 'FITNESS', 'FINANCIAL', 'PERSONAL', 'OTHER']),
     goals: a.string().array().required(),
-    matchups: a.ref('Matchup').array(), // 👈 this is the correct syntax
+    matchups: a.ref('Matchup').array(),
     winner: a.string(),
     round: a.integer(),
+    status: a.string().required(),
+    createdAt: a.datetime(),
   }).authorization(allow => [allow.owner()]),
 
   // Register the custom type
