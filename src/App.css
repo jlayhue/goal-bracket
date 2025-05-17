@@ -198,9 +198,9 @@
 
 /* Matchup */
 .matchup-container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+  min-height: 60px;
+  padding: 0.5rem 0.75rem;
+  gap: 0.25rem;
 }
 
 .matchup-options {
@@ -219,22 +219,21 @@
 }
 
 .vs-indicator {
-  padding: 1rem;
-  font-weight: bold;
-  color: #333;
-  font-size: 1.5rem;
+  padding: 0.2rem 0;
+  font-size: 1.1rem;
 }
 
 .matchup-option {
+  padding: 0.5rem 0.75rem;
+  min-width: 120px;
+  font-size: 1rem;
   flex: 1;
   background-color: #ffffff;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
-  padding: 2rem 1.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
-  font-size: 1.1rem;
   color: #333333;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -455,11 +454,7 @@
 }
 
 .round-matchups {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0;
-  position: relative;
+  gap: 0.5rem;
 }
 
 .matchup-container {
@@ -790,6 +785,7 @@ body, #root, .app-container {
   margin-bottom: 1.5rem;
   border: 1.5px solid rgba(255,255,255,0.07);
   backdrop-filter: blur(8px);
+  color: #232946;
 }
 
 @media (max-width: 700px) {
@@ -838,8 +834,8 @@ body, #root, .app-container {
 
 /* --- Input and Select Styles --- */
 input, select, textarea {
-  background: rgba(255,255,255,0.08);
-  color: #eaf0fa;
+  color: #232946;
+  background: rgba(255,255,255,0.92);
   border: 1.5px solid #7f9cf5;
   border-radius: 6px;
   padding: 0.9rem 1rem;
@@ -852,6 +848,10 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   border: 1.5px solid #5eead4;
   box-shadow: 0 2px 12px 0 #5eead488;
+}
+input::placeholder, textarea::placeholder {
+  color: #888fa6;
+  opacity: 1;
 }
 
 /* --- Miscellaneous --- */
@@ -874,4 +874,32 @@ input:focus, select:focus, textarea:focus {
 ::-webkit-scrollbar-thumb {
   background: #7f9cf5;
   border-radius: 8px;
+}
+
+/* --- Fix contrast for glassmorphic cards and inputs --- */
+.goal-input-container, .bracket-list, .bracket-container, .saved-bracket-view, .saved-brackets {
+  color: #232946;
+}
+
+input, select, textarea {
+  color: #232946;
+  background: rgba(255,255,255,0.92);
+}
+input::placeholder, textarea::placeholder {
+  color: #888fa6;
+  opacity: 1;
+}
+
+/* Section titles and nav keep their accent color */
+
+@media (max-width: 700px) {
+  .matchup-container {
+    min-height: 40px;
+    padding: 0.3rem 0.4rem;
+  }
+  .matchup-option {
+    min-width: 90px;
+    font-size: 0.95rem;
+    padding: 0.3rem 0.5rem;
+  }
 }
