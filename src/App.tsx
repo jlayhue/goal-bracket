@@ -30,22 +30,28 @@ function App() {
       {({ signOut, user }) => (
         <BracketProvider>
           <div className="app-container">
-            <header className="app-header">
-              <h1>Goal Bracket</h1>
-              <div className="user-controls">
-                <span>Hello, {user?.signInDetails?.loginId || user?.username}</span>
+            {/* Modern Top Navigation Bar */}
+            <nav className="top-nav">
+              <div className="app-logo">Goal Bracket</div>
+              <div className="nav-user">
+                <span className="user-email">Hello, {user?.signInDetails?.loginId || user?.username}</span>
                 <button onClick={signOut} className="sign-out-btn">Sign out</button>
               </div>
-            </header>
+            </nav>
 
-            <main className="app-content">
+            {/* Main Content Card */}
+            <main className="main-content-card">
               {showBracket ? (
-                <div className="bracket-container">
-                  <BracketView onBack={() => setShowBracket(false)} />
-                  <BracketSaver />
-                </div>
+                <>
+                  <div className="section-title">Your Bracket</div>
+                  <div className="bracket-container">
+                    <BracketView onBack={() => setShowBracket(false)} />
+                    <BracketSaver />
+                  </div>
+                </>
               ) : selectedBracket ? (
                 <div className="saved-bracket-view">
+                  <div className="section-title">Saved Bracket</div>
                   {/* TODO: Implement the saved bracket view */}
                   <h2>{selectedBracket.title}</h2>
                   <button 
@@ -57,8 +63,12 @@ function App() {
                 </div>
               ) : (
                 <div className="home-container">
-                  <GoalInput onStartBracket={() => setShowBracket(true)} />
+                  <div>
+                    <div className="section-title">Create a New Bracket</div>
+                    <GoalInput onStartBracket={() => setShowBracket(true)} />
+                  </div>
                   <div className="saved-brackets">
+                    <div className="section-title">Your Saved Brackets</div>
                     <BracketList onSelectBracket={setSelectedBracket} />
                   </div>
                 </div>

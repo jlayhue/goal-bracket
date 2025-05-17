@@ -19,12 +19,12 @@ export const generateMatchups = (goals: string[], round: number = 1): Matchup[] 
   }
 
   const matchups: Matchup[] = [];
+  const shuffledGoals = shuffleArray(goals); // Randomize the goals
   
   // Create pairs of goals
-  for (let i = 0; i < goals.length; i += 2) {
-    // Check if we have a pair or just one item left
-    const goalA = goals[i];
-    const goalB = i + 1 < goals.length ? goals[i + 1] : null;
+  for (let i = 0; i < shuffledGoals.length; i += 2) {
+    const goalA = shuffledGoals[i];
+    const goalB = i + 1 < shuffledGoals.length ? shuffledGoals[i + 1] : null;
     
     if (goalB) {
       matchups.push({
@@ -36,7 +36,13 @@ export const generateMatchups = (goals: string[], round: number = 1): Matchup[] 
       });
     } else {
       // If there's an odd number of goals, the last one gets a bye to the next round
-      // We'll handle this in the component that uses this function
+      matchups.push({
+        id: uuidv4(),
+        round,
+        goalA,
+        goalB: goalA, // Match the goal against itself
+        selected: goalA // Automatically select it as the winner
+      });
     }
   }
   
@@ -49,6 +55,7 @@ export const getNextRoundMatchups = (currentMatchups: Matchup[], round: number):
     throw new Error('Current matchups must be an array');
   }
 
+  // Get all winners, including goals that got a bye
   const winners = currentMatchups
     .filter(matchup => matchup.selected) // Only consider matchups that have a selection
     .map(matchup => matchup.selected as string);

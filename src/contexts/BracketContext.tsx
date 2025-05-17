@@ -1,14 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { Matchup } from '../utils/bracketUtils';
 
 type Goal = string;
-
-type Matchup = {
-  id: string;
-  round: number;
-  goalA: string;
-  goalB: string;
-  selected?: string;
-};
 
 type BracketContextType = {
   goals: Goal[];

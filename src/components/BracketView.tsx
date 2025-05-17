@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useBracket } from '../contexts/BracketContext';
-import { getCurrentRoundMatchups, getNextRoundMatchups, isRoundComplete } from '../utils/bracketUtils';
+import { getCurrentRoundMatchups, getNextRoundMatchups, isRoundComplete, Matchup } from '../utils/bracketUtils';
 
 interface BracketViewProps {
   onBack?: () => void;
@@ -80,7 +80,7 @@ const BracketView: React.FC<BracketViewProps> = ({ onBack }) => {
     );
   }
 
-  // Render the bracket
+  // Render the bracket (revert to simple column/row structure)
   return (
     <div className="bracket-view">
       <div className="bracket-header">
@@ -94,12 +94,10 @@ const BracketView: React.FC<BracketViewProps> = ({ onBack }) => {
           </button>
         )}
       </div>
-
       <div className="bracket-grid">
         {Array.from({ length: currentRound }, (_, roundIndex) => {
           const roundNumber = roundIndex + 1;
           const roundMatchups = getCurrentRoundMatchups(matchups, roundNumber);
-          
           return (
             <div key={roundNumber} className="bracket-round">
               <h3>Round {roundNumber}</h3>
